@@ -1,5 +1,5 @@
 var gameCore = {
-	DEBUG_MODE: true,
+	DEBUG_MODE: false,
 	startGame: function() {
 		var oldBody = $('.main-body');
 		oldBody.remove();
