@@ -14,6 +14,8 @@ var characterInfomation = {
 		'water': 0
 	},
 	init: function() {
+		this.point.computer = 0;
+		this.point["know-door"] = 0;
 		characterInfomation.attribute.physicalTalent = 2+8*Math.random();
 		characterInfomation.attribute.directionTalent = 2+8*Math.random();
 		characterInfomation.attribute.observationAbility = 2+8*Math.random();
