@@ -146,15 +146,6 @@ var startEvent = {
 				logs: "你绕着南一楼转了一圈。",
 				eventList: [
 					'wander-around1'
-				],
-				functionList: [
-					{
-						type: "pointAdd",
-						info: {
-							name: ["know-door"],
-							value: [1]
-						}
-					}
 				]
 			},{
 				id: "wait",
@@ -244,7 +235,7 @@ var startEvent = {
 	'chance': {
 		id: 'chance',
 		title: '绝妙良机',
-		desc: '在耐心地等待许久之后，你的朋友下来买水，你们交谈了一番。这是，你的朋友提醒你看守的人离开了，似乎是去上厕所了？！',
+		desc: '在耐心地等待许久之后，你的朋友下来买水，你们交谈了一番。这时，你的朋友提醒你看守的人离开了，似乎是去上厕所了？！',
 		optionList: [
 			{
 				id: "run-now-no-comp",
