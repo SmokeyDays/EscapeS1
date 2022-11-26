@@ -63,6 +63,7 @@ var baseConditions = {
 				if(characterInfomation.point[conditions.name] === undefined){
 					gameCore.throwNoPointError();
 				}
+				// console.log(characterInfomation.point[conditions.name[X]]+","+conditions.value[X])
 				if(characterInfomation.point[conditions.name[X]] < conditions.value[X]){
 					return false;
 				}

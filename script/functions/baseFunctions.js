@@ -39,10 +39,10 @@ var baseFunctions = {
 				return;
 			}
 			for(var X in functionInfo.name){
-				if(typeof characterInfomation.points[functionInfo.name[X]] === 'undefined'){
+				if(typeof characterInfomation.point[functionInfo.name[X]] === 'undefined'){
 					gameCore.throwNoAttributeError();
 				}
-				characterInfomation.points[functionInfo.name[X]] += functionInfo.value[X];
+				characterInfomation.point[functionInfo.name[X]] += functionInfo.value[X];
 			}
 		},
 	}
