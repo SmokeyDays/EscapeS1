@@ -60,7 +60,7 @@ var baseConditions = {
 				return;
 			}
 			for(var X in conditions.name){
-				if(typeof characterInfomation.point[conditions.name] === 'undefined'){
+				if(characterInfomation.point[conditions.name] === undefined){
 					gameCore.throwNoPointError();
 				}
 				if(!(characterInfomation.point[conditions.name[X]] > conditions.value[X])){

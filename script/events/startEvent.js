@@ -1,37 +1,381 @@
 var startEvent = {
 	'first-event': {
 		id: "first-event",
-		title: "这是哪儿？",
-		desc: "四周是茂盛的森林。潮湿的空气钻入你的鼻孔，你感觉到了腐烂的气味。意识逐渐清晰起来……",
-		logs: "周围的森林很茂密。",
+		title: "南一封了！！！",
+		desc: "你正在南一摸鱼，你的朋友在QQ群里告诉你，南一封了。你想起明天的比赛和呆在宿舍的队友，心里有点焦急。",
+		logs: "你突然得知南一封了。你想起明天的比赛和呆在宿舍的队友，心里有点焦急。",
 		optionList: [
 			{
-				id: "before-findDrink",
-				title: "我的嘴巴就像被烤过了一样，",
-				desc: "你感觉到非常口渴。",
-				logs: "意识逐渐清晰。",
+				id: "check-status",
+				title: "了解",
+				desc: "你决定去一楼看看详细情况。",
+				logs: "你坐电梯到了一楼。平常安静的一楼走廊现在充斥着焦虑的气氛。周遭人来人往，大家都很焦急。",
 				eventList: [
-					'before-findDrink'
+					'check-status'
+				],
+			}
+		]
+	},
+	'check-status': {
+		id: "check-status",
+		title: "康康情况",
+		desc: "你扫视了一下南一一楼的情况",
+		optionList: [
+			{
+				id: "check-doors",
+				title: "康康两侧的大门",
+				desc: "你决定去看看东西侧的大门",
+				logs: "东西侧的大门都紧锁着。有人在外侧呼喊着你无法理解的语句。",
+				eventList: [
+					'check-status'
+				]
+			},
+			{
+				id: "check-bars",
+				title: "康康走廊",
+				desc: "你决定康康与花园只隔着一条栅栏的走廊",
+				logs: "走廊的栏杆很窄，外侧的花园没有围栏。",
+				eventList: [
+					'check-bars'
 				]
 			}
 		]
 	},
-	'before-findDrink': {
-		id: "before-findDrink",
-		title: "口渴难耐",
-		desc: "你感到口渴难耐，你需要寻找可以喝的东西。",
-		logs: "你感到口渴难耐。",
+	'check-bars': {
+		id: "check-bars",
+		title: "花园守卫",
+		desc: "走廊的栏杆很窄，外侧的花园没有围栏。你相信可以从这里翻出去。你翻越围栏到了花园里，但被人拦住了。",
+		logs: "你翻越围栏到了花园里。",
 		optionList: [
 			{
-				id: "toFindDrink",
-				title: "我应该寻找解渴的方法。",
-				desc: "你开始思考用哪些方法可以找到水。",
-				logs: "你开始思考用哪些方法可以找到水。",
+				id: "listen-him",
+				title: "你听到他大喊。",
+				desc: "你听到一段不可名状不愿理解的语句。但是你的本能先于你的意识理解了。",
+				logs: "你听到一段不可名状不愿理解的语句。但是你的本能先于你的意识理解了。",
 				eventList: [
-				'findDrink'
+					'first-choice'
 				]
 			}
 		]
+	},
+	'check-bars': {
+		id: "check-bars",
+		title: "花园守卫",
+		desc: "走廊的栏杆很窄，外侧的花园没有围栏。你相信可以从这里翻出去。你翻越围栏到了花园里，但被人拦住了。",
+		logs: "你翻越围栏到了花园里。",
+		optionList: [
+			{
+				id: "listen-him",
+				title: "你听到他大喊。",
+				desc: "你听到一段不可名状不愿理解的语句。但是你的本能先于你的意识理解了。",
+				logs: "你听到一段不可名状不愿理解的语句。但是你的本能先于你的意识理解了。",
+				eventList: [
+					'first-choice'
+				]
+			}
+		]
+	},
+	'first-choice': {
+		id: "first-choice",
+		title: "抉择",
+		desc: "你听到他大喊：「别出去，不然要挨处分。抗疫不是开玩笑的。」你面临一个艰难的抉择。",
+		logs: "你听到他大喊：「别出去，不然要挨处分。抗疫不是开玩笑的。」",
+		optionList: [
+			{
+				id: "run-now",
+				title: "跑！！！",
+				desc: "你决定立刻跑路。",
+				eventList: [
+					'mid-end-1'
+				]
+			},
+			{
+				id: "back-now",
+				title: "服从",
+				desc: "你有点怂，加之你想起你的东西都没拿，决定回去拿东西。",
+				eventList: [
+					'bring-computers'
+				]
+			}
+		]
+	},
+	'bring-computers': {
+		id: "bring-computers",
+		title: "带上物资",
+		desc: "你回到了机房，带上了你的电脑和材料。同时，你的朋友们落下了电脑在南一，她们希望你帮她们带出去。",
+		logs: "你背上了书包，同时得知了你的朋友们希望你帮忙带上她们的电脑。",
+		optionList: [
+			{
+				id: "submit-bring",
+				title: "确定",
+				desc: "你带上物资。",
+				logs: "你将她们的笔记本电脑装入公文包，坐电梯到了一楼。",
+				eventList: [
+					'down-again'
+				],
+				functionList: [
+					{
+						type: "pointAdd",
+						info: {
+							name: ["computer"],
+							value: [1]
+						}
+					}
+				]
+			}
+		]
+	},
+	'down-again': {
+		id: 'down-again',
+		title: "再次下楼",
+		desc: "你重新抵达了一楼，然而令人惊恐的是，一楼原本可以轻松翻越的走廊现在有人坐在那儿驻守！",
+		logs: "走廊现在被保安看守着。",
+		optionList: [
+			{
+				id: "try-u-best",
+				title: "冲！",
+				desc: "你决定提着包直接冲出去。",
+				logs: "你提着公文包尝试迅速翻越围栏。",
+				eventList: [
+					'end-2'
+				]
+			},{
+				id: "wander-around1",
+				title: "转转",
+				desc: "你决定先转转看看有没有其他合适的地方。",
+				logs: "你绕着南一楼转了一圈。",
+				eventList: [
+					'wander-around1'
+				],
+				functionList: [
+					{
+						type: "pointAdd",
+						info: {
+							name: ["know-door"],
+							value: [1]
+						}
+					}
+				]
+			},{
+				id: "wait",
+				title: "别急，再等等",
+				desc: "你决定站在一个他看不到的地方观望。",
+				logs: "你站在了一个他的视野死角等了很久很久。",
+				eventList: [
+					'chance'
+				],
+			}
+		]
+	},
+	"wander-around1": {
+		id: 'wander-around1',
+		title: '无路可逃',
+		desc: '你在南一楼大致转了一圈，完全是徒劳。没有任何一扇门是开着的。你发觉手头的公文包似乎有点不方便行动。',
+		optionList: [
+			{
+				id: 'put',
+				title: '放下',
+				desc: '你决定放下公文包',
+				logs: '你将公文包放在了走廊某处，先专心研究如何逃出。',
+				eventList: [
+					'return'
+				],
+				functionList: [
+					{
+						type: "pointAdd",
+						info: {
+							name: ["computer"],
+							value: [-1]
+						}
+					}
+				]
+			},{
+				id: 'take',
+				title: '拿着',
+				desc: '你决定继续拿着公文包',
+				logs: '你提着公文包继续寻找出路。',
+				eventList: [
+					'return'
+				]
+			}
+		]
+	},
+	'return': {
+		id: 'return',
+		title: '死路一条',
+		desc: '你回到了走廊。保安仍然如同门神一样守卫在那里。在等待中你不禁有些焦虑：这样的等待真的有结果吗？',
+		optionList: [
+			{
+				id: 'wander-around2',
+				title: '再逛逛',
+				desc: '你想试着再仔细看看每个门。',
+				logs: '你注意到东北侧某处有一扇铁门的缝隙挺大，可以把包塞过去。但是人无法通过。',
+				eventList: [
+					'return'
+				],
+				functionList: [
+					{
+						type: "pointAdd",
+						info: {
+							name: ["know-door"],
+							value: [1]
+						}
+					}
+				]
+			},{
+				id: "wait",
+				title: "别急，再等等",
+				desc: "你决定站在一个他看不到的地方观望。",
+				logs: "你站在了一个他的视野死角等了很久很久。",
+				eventList: [
+					'chance'
+				],
+			},{
+				id: "back",
+				title: "怂了",
+				desc: "无数的无效的挣扎让你决定接受命运的安排。",
+				logs: "你放弃逃离，回到了楼上的机房。",
+				eventList: [
+					'end-3'
+				]
+			}
+		]
+	},
+	'chance': {
+		id: 'chance',
+		title: '绝妙良机',
+		desc: '在耐心地等待许久之后，你的朋友下来买水，你们交谈了一番。这是，你的朋友提醒你看守的人离开了，似乎是去上厕所了？！',
+		optionList: [
+			{
+				id: "run-now-no-comp",
+				title: "就是现在！",
+				desc: "你决定提着包直接冲出去。",
+				logs: "你提着公文包尝试迅速翻越围栏。",
+				eventList: [
+					'end-4'
+				],
+				conditionList: [
+					{
+						type: 'point',
+						info: {
+							name: ['computer'],
+							value: [1]
+						}
+					}
+				],
+			},{
+				id: "run-now-comp",
+				title: "就是现在！",
+				desc: "虽然你的公文包没在手边，但是机不可失失不再来，你决定立即翻越围栏。",
+				logs: "你背着书包迅速翻越围栏。",
+				eventList: [
+					'mid-end-1'
+				],
+				conditionList: [
+					{
+						type: 'not',
+						info: {
+							type: 'point',
+							info: {
+								name: ['computer'],
+								value: [1]
+							}
+						}
+					}
+				],
+			},{
+				id: "get-comp",
+				title: "等等，先去拿公文包。",
+				desc: "你意识到你的公文包没在手边，你决定先去拿公文包。",
+				logs: "你错过了良机。",
+				eventList: [
+					'mid-end-3'
+				],
+				conditionList: [
+					{
+						type: 'not',
+						info: {
+							type: 'point',
+							info: {
+								name: ['computer'],
+								value: [1]
+							}
+						}
+					}
+				],
+			}
+		]
+	},
+	
+	'mid-end-1': {
+		id: "mid-end-1",
+		title: "独自跑路",
+		desc: "你成功逃出了南一，但你和你的朋友们的包还在里头。",
+		logs: "你成功逃出了南一，但你和你的朋友们的包还在里头。",
+		optionList: [
+			{
+				id: "nothing-todo",
+				title: "无能为力",
+				desc: "你想了一圈，没有想到合适的方案。",
+				logs: "你未能带出你们的包。",
+				eventList: [
+					'end-1'
+				]
+			},{
+				id: 'the-door',
+				title: '那扇铁门！',
+				desc: '你想起了你之前寻找出路的时候见到的那扇铁栅栏门',
+				logs: '你让你的朋友从那扇铁栅栏门的缝隙中递出了包。',
+				eventList: [
+					'end-4'
+				],
+				conditionList: [
+					{
+						type: 'point',
+						info: {
+							name: ['know-door'],
+							value: [1]
+						}
+					}
+				],
+			}
+		]
+	},
+	'mid-end-3': {
+		id: 'mid-end-3',
+		title: "错失良机",
+		desc: "当你取回公文包回来时，保安已经重新回到了他的岗位守着了。你意识到良机已经失去了。在等待许久未果后，你屈服了，回到了楼上的机房。",
+		optionList: [
+			{
+				id: "back",
+				title: "寄了",
+				desc: "无数的无效的挣扎让你决定接受命运的安排。",
+				logs: "你放弃逃离，回到了楼上的机房。",
+				eventList: [
+					'end-3'
+				]
+			}
+		]
+	},
+	'end-1': {
+		id: "end-1",
+		title: "结局一：单人冒险",
+		desc: "幸好你提前逃出了南一。晚两个小时南一就解封了。你的另一个朋友帮你们把东西带了出来。无论如何，你确保了自己能参加第二天的比赛，没有被**的封楼干扰。",
+	},
+	'end-2': {
+		id: "end-2",
+		title: "结局二：提心吊胆",
+		desc: "你成功润出了南一。后方的人追了你一段路后放弃了。你忐忑不安地送还了电脑，抢购物资，回到寝室，有点后悔刚才武断的决定。然后，两个小时过去了，你得知了阳伪的消息。南一解封了。平安无事。",
+	},
+	'end-3': {
+		id: "end-3",
+		title: "结局三：非日常的日常",
+		desc: "你在机房仅仅呆了一会，就收到了阳伪的消息，南一解除封控了。一切都显得那么自然而平凡，对吗？但是否错失了什么在生命中留下回忆的机会……",
+	},
+	'end-4': {
+		id: "end-4",
+		title: "结局四：飞马牌汽车",
+		desc: "你顺利地把公文包带了出去，送还给了你的朋友。你突然想起了《飞马牌汽车》里的那句台词：「每一次相见，都可能是最后一次；每一次分别，都可能是永别。」这是后疫情时代的你的真实写照。",
 	},
 	'findDrink': {
 		id: "findDrink",
@@ -51,8 +395,8 @@ var startEvent = {
 					{
 						type: "pointAdd",
 						info: {
-							name: ["energy"],
-							value: [-1]
+							name: ["computer"],
+							value: [1]
 						}
 					}
 				]
@@ -190,38 +534,6 @@ var startEvent = {
 						info: {
 							name: ['observationAbility'],
 							value: [9]
-						}
-					},
-					{
-						type: 'and',
-						info: [
-						{
-							type: 'not',
-							info: {
-								type: 'attr',
-								info: {
-									name: ['observationAbility'],
-									value: [9]
-								}
-							}
-						},
-						{
-							type: 'attr',
-							info: {
-								name: ['observationAbility'],
-								value: [4]
-							}
-						}
-						]
-					},
-					{
-						type: 'not',
-						info: {
-							type: 'attr',
-							info: {
-								name: ['observationAbility'],
-								value: [4]
-							}
 						}
 					}
 				],

@@ -14,7 +14,7 @@ var showButton = {
 		if(typeof buttonOptions.conditionList !== 'undefined'){
 			for(var X in buttonOptions.conditionList){
 				if(!judgeConditions.judge(buttonOptions.conditionList[X])){
-					return;
+					return undefined;
 				}
 			}
 		}

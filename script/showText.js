@@ -41,8 +41,9 @@ var showText = {
 		var eventBlock = $('<div>').addClass('event-block').css('opacity','0').prependTo('div#event-box');
 		if(typeof eventOptions.optionList !== 'undefined'){
 			for(var X=eventOptions.optionList.length-1;X>=0;--X){
-				var nowOption = new showButton.printEventButton(eventOptions.optionList[X]);
-				if(typeof nowOption !== 'undefined'){
+				var nowOption = showButton.printEventButton(eventOptions.optionList[X]);
+				console.log(nowOption)
+				if(nowOption !== undefined){
 					nowOption.prependTo(eventBlock);
 				}
 			}

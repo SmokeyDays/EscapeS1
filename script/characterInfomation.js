@@ -4,9 +4,11 @@ var characterInfomation = {
 		'directionTalent': 0,
 		'observationAbility': 0
 	},
-	points: {
+	point: {
 		'water': 0,
-		'food': 0
+		'food': 0,
+		'computer': 0,
+		'know-door': 0,
 	},
 	items: {
 		'water': 0
