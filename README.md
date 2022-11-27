@@ -4,7 +4,9 @@
  
  基于 html,javascript 和 css.
  
- pages: https://smokeydays.github.io/EscapeS1/main.html
+ 采用远古框架 WorldinShadow
+
+ 部署于: http://escapes1.smokeydays.top/
  
  感谢：
- @hotwords123 提供语法援助。
+ 封控的经历给了我灵感
